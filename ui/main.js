@@ -1,6 +1,7 @@
 console.log('Loaded!');
 
 // move the img
+/*
 var im = document.getElementById("a4img");
 var t = document.getElementById("te");
 var l=0;
@@ -17,11 +18,12 @@ im.onclick = function(){
 };
 
 // index.html
+*/
+
 var button = document.getElementById("b");
-
-
 b.onclick = function(){
     var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             var count = request.responseText;
@@ -30,6 +32,8 @@ b.onclick = function(){
         }
         
     }
+        
+    };
     request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
     request.send(null);
 };
