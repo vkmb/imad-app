@@ -19,16 +19,17 @@ im.onclick = function(){
 // index.html
 var button = document.getElementById("b");
 
-var ctext = document.getElementById("spa1");
+
 b.onclick = function(){
     var request = new XMLHttpRequest();
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             var count = request.responseText;
+            var ctext = document.getElementById("spa1");
             ctext.innerHTML = count.toString();
         }
         
     }
 }
-reponse.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
-reponse.send(null);
+request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
+request.send(null);
