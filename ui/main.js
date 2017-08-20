@@ -27,6 +27,7 @@ button.onclick = function(){
     cote.innerHTML = count.toString();
 }; 
 */
+var button = document.getElementById('b');
 button.onclick = function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
