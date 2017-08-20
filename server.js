@@ -43,11 +43,7 @@ function convert2hmtlnjs(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:articleid', funtion(req, res) {
-    var article_name = req.params.articleid;
-    res.send(convert2htmlnjs(articles[article_name]));
-    
-});
+
 app.get('/article-four',function(req, res){
   res.sendFile(path.join(__dirname,'ui','article_four.html'));
 });
