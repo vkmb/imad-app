@@ -23,13 +23,13 @@ im.onclick = function(){
 var button = document.getElementById('b');
 
 var count = 0;
-b.onclick = function(){
+button.onclick = function(){
     count = count+1;
     var cote = document.getElementById('s');
     cote.innerHTML = count.toString();
 }; 
 /*
-b.onclick = function(){
+button.onclick = function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
