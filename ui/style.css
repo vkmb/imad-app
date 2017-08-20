@@ -19,4 +19,12 @@ body {
 .img-medium {
     height: 200px;
 }
+.content{
+    background-color: cyan;
+    color: tomato;
+    font-family:Times New Roman;
+    padding-left:20px;
+    padding-right:20px;
+            
+}
 
