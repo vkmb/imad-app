@@ -43,13 +43,16 @@ function convert2html(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
+app.get('/Article-Four',function(req, res){
+  res.sendFile(path.join(__dirname,'ui','article_four.html'));
+});
+
 app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
   res.send(convert2html(articles[an]));
 });
-app.get('/Article-Four',function(req, res){
-  res.sendFile(path.join(__dirname,'ui','article_four.html'));
-});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
