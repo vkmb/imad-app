@@ -25,11 +25,11 @@ b.onclick = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             var count = request.responseText;
-            var ctext = document.getElementById("spa1");
+            var ctext = document.getElementById("s");
             ctext.innerHTML = count.toString();
         }
         
     }
-}
-request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
-request.send(null);
+    request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
+    request.send(null);
+};
