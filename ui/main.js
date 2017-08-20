@@ -18,7 +18,7 @@ im.onclick = function(){
 };
 
 // index.html
-*/
+
 var button = document.getElementById('b');
 var count = 0;
 button.onclick = function(){
@@ -26,7 +26,7 @@ button.onclick = function(){
     var cote = document.getElementById('s');
     cote.innerHTML = count.toString();
 }; 
-/*
+*/
 button.onclick = function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -43,4 +43,3 @@ button.onclick = function(){
     request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
     request.send(null);
 };
-*/
