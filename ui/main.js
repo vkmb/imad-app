@@ -44,3 +44,21 @@ button.onclick = function(){
     request.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true);
     request.send(null);
 };
+var name_list = [];
+var sub_button = document.getElementById("submit");
+var name_text = document.getElementById("name");
+sub_button.onclick= function(){
+    var name = name_text.value;
+        var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+    if (request.readyState === XMLHttpRequest.DONE){
+        if (request.status === 200){
+            var count = request.responseText;
+        }
+        
+    }
+        
+    };
+    request.open("GET","http://mithun14leo.imad.hasura-app.io/submit-name/"+name, true);
+    request.send(null);
+    };
