@@ -12,8 +12,7 @@ im.style.marginLeft = l+'px';
 }
 
 im.onclick = function(){
-    setInterval(move_to_right, 50)
+    t.innerHtml = "You have opened the secret tunnel !!";
+    setInterval(move_to_right, 50);
 };
-t.onclick = function(){
-    t.innerHtml = "You have opened the secret tunnel !!"
-};
+
