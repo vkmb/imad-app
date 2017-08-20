@@ -44,7 +44,12 @@ function convert2html(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+var name_list =[]
+app.get('/submit-name/:nameid', function (req, res) {
+  var name = req.params.nameid;
+  name_list.push(name);
+  res.send(JSON.Stringify(name_list))
+});
 app.get('/my',function(req, res){
   res.sendFile(path.join(__dirname,'ui','my.html'));
 });
