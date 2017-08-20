@@ -22,7 +22,7 @@ var button = document.getElementById("b");
 var ctext = document.getElementById("spa1");
 b.onclick = function(){
     var request = new XMLHttpRequest();
-    if (request.readyState === XMLHttpRequest.done){
+    if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             var count = request.responseText;
             ctext.innerHTML = count.toString();
