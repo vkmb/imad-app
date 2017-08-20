@@ -20,14 +20,14 @@ im.onclick = function(){
 // index.html
 */
 
-var button = document.getElementById("b");
+var button = document.getElementById('b');
 b.onclick = function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             var count = request.responseText;
-            var ctext = document.getElementById("s");
+            var ctext = document.getElementById('s');
             ctext.innerHTML = count.toString();
         }
         
