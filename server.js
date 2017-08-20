@@ -44,7 +44,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/my.html',function(req, res){
+app.get('/my',function(req, res){
   res.sendFile(path.join(__dirname,'ui','my.html'));
 });
 
