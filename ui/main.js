@@ -60,7 +60,7 @@ sub_button.onclick= function(){
             for (var i =0;i < name_list.length;i++){
                 name1 = name1+"<li>"+i+"</li>";
             }
-            ul.innerHTML = name;
+            ul.innerHTML = name1;
         }
         
     }
