@@ -30,5 +30,5 @@ b.onclick = function(){
         
     }
 }
-reponse.open("GET","http://mithun14leo.imad.hasura-app.io", true)
+reponse.open("GET","http://mithun14leo.imad.hasura-app.io/counter", true)
 reponse.send()
