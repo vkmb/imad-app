@@ -44,12 +44,6 @@ function convert2html(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-var name_list =[]
-app.get('/submit-name/:nameid', function (req, res) {
-  var name = req.params.nameid;
-  name_list.push(name);
-  res.send(JSON.stringify(name_list));
-});
 app.get('/my',function(req, res){
   res.sendFile(path.join(__dirname,'ui','my.html'));
 });
@@ -57,15 +51,19 @@ app.get('/counter',function(req, res){
  count = count + 1;
  res.send(count.toString());
 });
+var name_list =[]
+app.get('/submit-name/:nameid', function (req, res) {
+  var name = req.params.nameid;
+  name_list.push(name);
+  res.send(JSON.stringify(name_list));
+});
 app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
   res.send(convert2html(articles[an]));
 });
-
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
