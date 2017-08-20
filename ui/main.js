@@ -19,9 +19,7 @@ im.onclick = function(){
 
 // index.html
 */
-
 var button = document.getElementById('b');
-
 var count = 0;
 button.onclick = function(){
     count = count+1;
