@@ -18,7 +18,7 @@ im.onclick = function(){
 
 // index.html
 var button = document.getElementById("b");
-var count = 0;
+
 var ctext = document.getElementById("spa1");
 b.onclick = function(){
     var request = new XMLHttpRequest();
