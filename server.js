@@ -5,12 +5,12 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 var articles = {
-    "Article-1":{title: "Article One | VKMB", head: "Article One _-_-_ 10/08/2017", content: `<p>This was typed at 4:50 pm.</p><p>No conntent yet.</p>`},
-    "Article-2":{title: "Article Two | VKMB", head: "Article Two _-_-_ 10/08/2017", content: `<p>This was typed at 4:55 pm.</p><p>No conntent yet.</p>`},
-    "Article-3":{title: "Article Three | VKMB", head: "Article Three _-_-_ 10/08/2017", content: `<p>This was typed at 5 pm.</p><p>No conntent yet.</p>`}
+    "Article-One":{title: "Article One | VKMB", head: "Article One _-_-_ 10/08/2017", content: `<p>This was typed at 4:50 pm.</p><p>No conntent yet.</p>`},
+    "Article-Two":{title: "Article Two | VKMB", head: "Article Two _-_-_ 10/08/2017", content: `<p>This was typed at 4:55 pm.</p><p>No conntent yet.</p>`},
+    "Article-Three":{title: "Article Three | VKMB", head: "Article Three _-_-_ 10/08/2017", content: `<p>This was typed at 5 pm.</p><p>No conntent yet.</p>`}
 };
 
-function convert2hmtlnjs(data){
+function convert2html(data){
     var title = data.title;
     var head = data.head;
     var content = data.content;
@@ -45,7 +45,7 @@ app.get('/', function (req, res) {
 });
 app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
-  res.send(convert2htmlnjs(articles[an]));
+  res.send(convert2html(articles[an]));
 });
 app.get('/article-four',function(req, res){
   res.sendFile(path.join(__dirname,'ui','article_four.html'));
