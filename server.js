@@ -47,7 +47,7 @@ app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
   res.send(convert2html(articles[an]));
 });
-app.get('/article-four',function(req, res){
+app.get('/Article-Four',function(req, res){
   res.sendFile(path.join(__dirname,'ui','article_four.html'));
 });
 app.get('/ui/style.css', function (req, res) {
