@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
+var count = 0; 
 var app = express();
 app.use(morgan('combined'));
 var articles = {
@@ -47,7 +48,10 @@ app.get('/', function (req, res) {
 app.get('/my',function(req, res){
   res.sendFile(path.join(__dirname,'ui','my.html'));
 });
-
+app.get('/counter',function(req, res){
+ count = count + 1;
+ res.send(count.toString());
+});
 app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
   res.send(convert2html(articles[an]));
