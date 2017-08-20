@@ -58,8 +58,9 @@ sub_button.onclick= function(){
             var nae_stg = request.responseText;
             name_list = JSON.parse(nae_stg);
             for (var i =0;i < name_list.length;i++){
-                name1 = "<li>"+name_list[i]+"</li>";
+                name1 = name1 + "<li>" + name_list[i]+"</li>";
             }
+            ul.innerHTML = null;
             ul.innerHTML = name1;
         }
         
