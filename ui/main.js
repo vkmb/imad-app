@@ -21,11 +21,12 @@ im.onclick = function(){
 */
 
 var button = document.getElementById('b');
-var cote = document.getElementById('s');
+
 var count = 0;
 b.onclick = function(){
     count = count+1;
-    s.innerHTML = count.toString();
+    var cote = document.getElementById('s');
+    cote.innerHTML = count.toString();
 }; 
 /*
 b.onclick = function(){
