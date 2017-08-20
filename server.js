@@ -26,7 +26,7 @@ function convert2hmtlnjs(data){
         <div>
             <a href="/">Home</a>
         </div>
-        <div class="main">
+        <div class="content">
             <div>
                 <h2>
                    ${head}
