@@ -12,7 +12,23 @@ im.style.marginLeft = l+'px';
 }
 
 im.onclick = function(){
-    t.innerHtml = "You have opened the secret tunnel !!";
+    t.innerHTML = "You have opened the secret tunnel !!";
     setInterval(move_to_right, 50);
 };
 
+// index.html
+var button = document.getElementById("b");
+var count = 0;
+var ctext = document.getElementById("spa1");
+b.onclick = function(){
+    var request = new XMLHttpRequest();
+    if (request.readyState === XMLHttpRequest.done){
+        if (request.status === 200){
+            var count = request.responseText;
+            ctext.innerHTML = count.toString();
+        }
+        
+    }
+}
+reponse.open("GET","http://mithun14leo.imad.hasura-app.io", true)
+reponse.send()
