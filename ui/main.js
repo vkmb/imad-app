@@ -1,7 +1,7 @@
 console.log('Loaded!');
 
 // move the img
-
+/*
 var im = document.getElementById("a4img");
 var t = document.getElementById("te");
 var l=0;
@@ -18,7 +18,7 @@ im.onclick = function(){
 };
 
 // index.html
-
+*/
 var button = document.getElementById('b');
 var count = 0;
 button.onclick = function(){
