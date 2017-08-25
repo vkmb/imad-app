@@ -1,7 +1,7 @@
 console.log('Loaded!');
 
 // move the img
-/*
+
 var im = document.getElementById("a4img");
 var t = document.getElementById("te");
 var l=0;
@@ -26,7 +26,7 @@ button.onclick = function(){
     var cote = document.getElementById('s');
     cote.innerHTML = count.toString();
 }; 
-*/
+
 var button = document.getElementById('b');
 button.onclick = function(){
     var request = new XMLHttpRequest();
