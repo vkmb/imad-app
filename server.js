@@ -51,12 +51,28 @@ app.get('/counter',function(req, res){
  count = count + 1;
  res.send(count.toString());
 });
+
 var name_list =[]
+
+app.get('/submit-name', function (req, res) {
+  var name = req.qurey.nameid;
+  name_list.push(name);
+  res.send(JSON.stringify(name_list));
+});
+/*
 app.get('/submit-name/:nameid', function (req, res) {
   var name = req.params.nameid;
   name_list.push(name);
   res.send(JSON.stringify(name_list));
 });
+
+app.get('/submit-name', function (req, res) {
+  var name = req.qurey.nameid;
+  name_list.push(name);
+  res.send(JSON.stringify(name_list));
+});
+
+*/
 app.get('/:articleid', function (req, res) {
     var an = req.params.articleid;
   res.send(convert2html(articles[an]));
