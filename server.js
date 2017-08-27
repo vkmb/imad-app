@@ -16,7 +16,7 @@ var config  = {
 
 function convert2html(data){
     var title = data.title;
-    var head = data.head;
+    var head = data.heading;
     var date = data.date;
     var content = data.content;
     var html_template = `
