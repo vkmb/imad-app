@@ -48,7 +48,7 @@ function convert2html(data){
 }
 var pool = new Pool(config);
 app.get('/articles/:articletitle', function (req, res) {
-    pool.query("SELECT * FROM article WHERE tile =  $1",[req.params.articletitle], function(err, result){
+    pool.query("SELECT * FROM article WHERE title =  $1",[req.params.articletitle], function(err, result){
        if (err){
            res.status(500).send(err.toString());}
        else {
