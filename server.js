@@ -5,7 +5,7 @@ var Pool = require('pg').Pool;
 var count = 0; 
 var app = express();
 app.use(morgan('combined'));
-var articles = {
+//var articles = {
     "Article-One":{title: "Article One | VKMB", head: "Article One _-_-_ 10/08/2017", content: `<p>This was typed at 4:50 pm.</p><p>No conntent yet.</p>`},
     "Article-Two":{title: "Article Two | VKMB", head: "Article Two _-_-_ 10/08/2017", content: `<p>This was typed at 4:55 pm.</p><p>No conntent yet.</p>`},
     "Article-Three":{title: "Article Three | VKMB", head: "Article Three _-_-_ 10/08/2017", content: `<p>This was typed at 5 pm.</p><p>No conntent yet.</p>`}
@@ -17,9 +17,6 @@ var config  = {
     port:'5432',
     password : process.env.DB_PASSWORD
 }
-
-
-
 
 function convert2html(data){
     var title = data.title;
@@ -54,8 +51,8 @@ function convert2html(data){
     return html_template;
 }
 var pool = new Pool(config);
-app.get('/article-db/:articleid', function (req, res) {
-    pool.query("SELECT * from article where $1",[req.params.articleid], function(err, result){
+app.get('/articles/:articletitle', function (req, res) {
+    pool.query("SELECT * from article where $1",[req.params.articletitle], function(err, result){
        if (err){
            res.status(500).send(err.toString());}
        else {
