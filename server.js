@@ -55,7 +55,7 @@ function convert2html(data){
 }
 var pool = new Pool(config);
 app.get('/article-db/:articleid', function (req, res) {
-    pool.query("SELECT * from article where $1",[req.params.articleid], funtion(err, result){
+    pool.query("SELECT * from article where $1",[req.params.articleid], function(err, result){
        if (err){
            res.status(500).send(err.toString());}
        else {
