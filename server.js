@@ -34,7 +34,7 @@ function convert2html(data){
         <div class="content">
             <div>
                 <h2>
-                   ${head}
+                   ${head}<br>
                    ${date.toDateString()}
                 </h2>
                 ${content}
