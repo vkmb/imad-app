@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var Pool = require('pg').Pool;
 var count = 0; 
 var app = express();
 app.use(morgan('combined'));
@@ -10,10 +10,21 @@ var articles = {
     "Article-Two":{title: "Article Two | VKMB", head: "Article Two _-_-_ 10/08/2017", content: `<p>This was typed at 4:55 pm.</p><p>No conntent yet.</p>`},
     "Article-Three":{title: "Article Three | VKMB", head: "Article Three _-_-_ 10/08/2017", content: `<p>This was typed at 5 pm.</p><p>No conntent yet.</p>`}
 };
+var config  = {
+    user:'mithun14leo',
+    database : 'mithun14leo',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password : process.env.DB_PASSWORD
+}
+
+
+
 
 function convert2html(data){
     var title = data.title;
     var head = data.head;
+    var date = data.date;
     var content = data.content;
     var html_template = `
     <html>
@@ -31,6 +42,7 @@ function convert2html(data){
             <div>
                 <h2>
                    ${head}
+                   ${date.toDateString()}
                 </h2>
                 ${content}
             </div>
@@ -41,6 +53,23 @@ function convert2html(data){
     `;
     return html_template;
 }
+var pool = new Pool(config);
+app.get('/article-db/:articleid', function (req, res) {
+    pool.query("SELECT * from article where $1",[req.params.articleid], funtion(err, result){
+       if (err){
+           res.status(500).send(err.toString());}
+       else {
+           if (result.rows.lenght === 0)
+               {res.send('Article Not found');}
+          
+           else {
+               var articledata = result.rows[0];
+               res.send(convert2html(articledata));
+           }
+       }
+    });
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -73,10 +102,7 @@ app.get('/submit-name', function (req, res) {
 });
 
 */
-app.get('/:articleid', function (req, res) {
-    var an = req.params.articleid;
-  res.send(convert2html(articles[an]));
-});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
