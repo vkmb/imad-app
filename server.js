@@ -5,11 +5,7 @@ var Pool = require('pg').Pool;
 var count = 0; 
 var app = express();
 app.use(morgan('combined'));
-//var articles = {
-    "Article-One":{title: "Article One | VKMB", head: "Article One _-_-_ 10/08/2017", content: `<p>This was typed at 4:50 pm.</p><p>No conntent yet.</p>`},
-    "Article-Two":{title: "Article Two | VKMB", head: "Article Two _-_-_ 10/08/2017", content: `<p>This was typed at 4:55 pm.</p><p>No conntent yet.</p>`},
-    "Article-Three":{title: "Article Three | VKMB", head: "Article Three _-_-_ 10/08/2017", content: `<p>This was typed at 5 pm.</p><p>No conntent yet.</p>`}
-};
+
 var config  = {
     user:'mithun14leo',
     database : 'mithun14leo',
