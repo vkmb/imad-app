@@ -1,4 +1,5 @@
-var us = document.getElementById('username').value;
-var pa = document.getElementById('password').value;
+var us = document.getElementById('username');
+var pa = document.getElementById('password');
 var sub =  document.getElementById('sub');
+sub.onClick = function(){}; 
 console.log(us,pa);
