@@ -17,7 +17,7 @@ var config  = {
 }
 function hash(value,salt){
     var return_value = crypto.pbkdf2Sync(value, salt, 10000, 512, 'sha512');
-    return return_value.toString('hex');
+    return ['pbkdf', salt, '10000', return_value.toString('hex')].join('$');
 }
 function convert2html(data){
     var title = data.title;
