@@ -3,7 +3,7 @@ var us = document.getElementById("username");
 var pa = document.getElementById("password");
 var s =  document.getElementById("sas");
 var sub =  document.getElementById("sub");
-sub.onClick = function(){
+sub.onclick = function(){
 var name = us.value;
 var pass = pa.value;
         var request = new XMLHttpRequest();
@@ -13,7 +13,7 @@ var pass = pa.value;
             var nae_stg = request.responseText;
             alert(nae_stg);
         }
-        else{
+        else if (request.status === 500){
             var nae_1stg = request.responseText;
             alert(nae_1stg);
         }
