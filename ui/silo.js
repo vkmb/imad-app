@@ -11,12 +11,12 @@ console.log(pass);
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
-            s.innerHtml=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
+            s.innerHTML=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
             //alert('ACCOUNT CREATED SUCCESSFULLY FOR '+ name);
         }
         else if (request.status === 500){
             var nae_1stg = request.responseText;
-             s.innerHtml=nae_1stg.toString();
+             s.innerHTML=nae_1stg.toString();
             //alert(nae_1stg);
         }
     }
