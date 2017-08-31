@@ -68,10 +68,38 @@ function convert2html(data){
 
 //end pionts
 
-app.post('/create-user',function(req,res){
+app.post('/log-user',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
     var salt = crypto.randomBytes(128).toString('hex');
+    
+    pool.query('SELECT * from all_db WHERE usna = $1', [usna], function(err, result){
+        if (err){
+            res.send(500).send(err.toString());
+        }
+        else {
+            if (result.rows.length === 0){
+                
+                res.send(403).send('Username does not exsist');
+            }
+            else{
+                var dbstr = result.rows[0].password;
+                var salt = db.split('$')[2];
+                var pa = hash(dbstr, salt)
+                if (pa === pass){
+                    res.send(200).send('Welcome... '+ usna );
+                }
+                else {
+                    res.send(403).send('Invalid Password');
+                }
+            }
+        }
+    });
+});
+
+app.post('/create-user',function(req,res){
+    var usna = req.body.username;
+    var pass = req.body.password;
     pass = hash(pass, salt);
     pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, pass], function(err, result){
         if (err){
