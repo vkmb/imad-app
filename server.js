@@ -4,7 +4,7 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var count = 0; 
 var app = express();
-var crypto = requires('crypto');
+var crypto = require('crypto');
 app.use(morgan('combined'));
 var name_list =[]
 
