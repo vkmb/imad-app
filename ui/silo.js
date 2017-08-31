@@ -12,6 +12,9 @@ sub.onClick = function(){
             if (request.status === 200){
                 alert("Thank you!!!")
             }
+            else{
+                 alert("Sorry!!!")
+            }
         }
     }
     request.setRequestHeader('Content-Type', 'application/json');
