@@ -68,7 +68,7 @@ function convert2html(data){
 
 //end pionts
 
-app.post('/log-user',function(req,res){
+app.post('/login',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
     
@@ -84,8 +84,8 @@ app.post('/log-user',function(req,res){
             }
             else{
                 var dbstr = result.rows[0].password;
-                var salt = dbstr.split('$')[1];
-                var pa = hash(pass, salt);
+                var salt1 = dbstr.split('$')[1];
+                var pa = hash(pass, salt1);
                 if (pa === dbstr){
                     res.send(200).send('Welcome... '+ usna );
                 }
