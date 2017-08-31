@@ -1,4 +1,3 @@
-console.log('Loaded!');
 var us = document.getElementById("username");
 var pa = document.getElementById("password");
 var s =  document.getElementById("sas");
@@ -6,6 +5,8 @@ var sub =  document.getElementById("sub");
 sub.onclick = function(){
 var name = us.value;
 var pass = pa.value;
+console.log('Loaded!');
+
         var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
