@@ -13,8 +13,8 @@ var pass = pa.value;
             alert(nae_stg);
         }
         else{
-            var nae_stg = request.responseText;
-            alert(nae_stg);
+            var nae_1stg = request.responseText;
+            alert(nae_1stg);
         }
     }
     };
