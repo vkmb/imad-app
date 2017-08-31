@@ -78,7 +78,7 @@ app.post('/create-user',function(req,res){
             res.send(500).send(err.toString());
         }
         else{
-            res.send(200);
+            res.send(200).send('Hello '+ usna);
         }
     });
 });
