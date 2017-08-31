@@ -16,7 +16,7 @@ var config  = {
     password : process.env.DB_PASSWORD
 }
 function hash(value,salt){
-    var return_value = crypto.pbkdf2Sync(value, salt, 10000, 512, 'sha512');
+    var return_value = crypto.pbkdf2Sync(value, salt, 1, 512, 'sha512');
     return return_value.toString('hex');
 }
 function convert2html(data){
