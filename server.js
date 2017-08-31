@@ -118,7 +118,7 @@ app.get('/articles/:articletitle', function (req, res) {
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/account', function (req, res) {
+app.get('/accounts', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'silo.html'));
 });
 app.get('/my',function(req, res){
