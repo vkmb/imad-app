@@ -30,7 +30,7 @@ app.use(bp.json());
 // logical
 function hash(value,salt){
     var return_value = crypto.pbkdf2Sync(value, salt, 10000, 512, 'sha512');
-    return ['pbkdf', salt, '10000', return_value.toString('hex')].join('$');
+    return ['pbkdf','10000', salt, return_value.toString('hex')].join('$');
 }
 function convert2html(data){
     var title = data.title;
@@ -84,7 +84,7 @@ app.post('/login',function(req,res){
             }
             else{
                 var dbstr = result.rows[0].password;
-                var salt1 = dbstr.split('$')[1];
+                var salt1 = dbstr.split('$')[2];
                 var pa = hash(pass, salt1);
                 if (pa === dbstr){
                     res.send(200).send('Welcome... '+ usna );
@@ -101,8 +101,8 @@ app.post('/create-user',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
     var salt = crypto.randomBytes(128).toString('hex');
-    pass = hash(pass, salt);
-    pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, pass], function(err, result){
+    var passq = hash(pass, salt);
+    pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, passq], function(err, result){
         if (err){
             res.send(500).send(err.toString());
         }
