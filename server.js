@@ -4,7 +4,9 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var count = 0; 
 var app = express();
+var crypto = requires('crypto');
 app.use(morgan('combined'));
+var name_list =[]
 
 var config  = {
     user:'mithun14leo',
@@ -13,7 +15,10 @@ var config  = {
     port:'5432',
     password : process.env.DB_PASSWORD
 }
-
+function hash(value,salt){
+    var return_value = crypto.pbkdf2Sync(value, salt, 100, 512, 'sha512');
+    return return_value.toString('hex');
+}
 function convert2html(data){
     var title = data.title;
     var head = data.heading;
@@ -48,6 +53,11 @@ function convert2html(data){
     return html_template;
 }
 var pool = new Pool(config);
+app.get('/hash/:value',function(req,res){
+    var value = rep.params.value;
+    res.send(value);
+});
+
 app.get('/articles/:articletitle', function (req, res) {
     pool.query("SELECT * FROM article WHERE title =  $1",[req.params.articletitle], function(err, result){
        if (err){
@@ -75,7 +85,7 @@ app.get('/counter',function(req, res){
  res.send(count.toString());
 });
 
-var name_list =[]
+
 
 app.get('/submitname', function (req, res) {
   var name = req.query.name;
