@@ -32,6 +32,7 @@ function hash(value,salt){
     var return_value = crypto.pbkdf2Sync(value, salt, 10000, 512, 'sha512');
     return ['pbkdf','10000', salt, return_value.toString('hex')].join('$');
 }
+/*
 function convert2html(data){
     var title = data.title;
     var head = data.heading;
@@ -65,14 +66,30 @@ function convert2html(data){
     `;
     return html_template;
 }
+*/
 
 //end pionts
+
+
+
+app.post('/create-user',function(req,res){
+    var usna = req.body.username;
+    var pass = req.body.password;
+    var salt = crypto.randomBytes(128).toString('hex');
+    var passq = hash(pass, salt);
+    pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, passq], function(err, result){
+        if (err){
+            res.send(500).send(err.toString());
+        }
+        else{
+            res.send(200).send('Hello '+ usna);
+        }
+    });
+});
 
 app.post('/login',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
-    
-    
     pool.query('SELECT * from all_db WHERE usna = $1', [usna], function(err, result){
         if (err){
             res.send(500).send(err.toString());
@@ -97,20 +114,6 @@ app.post('/login',function(req,res){
     });
 });
 
-app.post('/create-user',function(req,res){
-    var usna = req.body.username;
-    var pass = req.body.password;
-    var salt = crypto.randomBytes(128).toString('hex');
-    var passq = hash(pass, salt);
-    pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, passq], function(err, result){
-        if (err){
-            res.send(500).send(err.toString());
-        }
-        else{
-            res.send(200).send('Hello '+ usna);
-        }
-    });
-});
 
 /*app.get('/hash/:value',function(req,res){
     var value = req.params.value;
