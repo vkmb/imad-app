@@ -17,12 +17,13 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-var app = express();
 var crypto = require('crypto');
-var bp = require('body-parser')
+var bp = require('body-parser');
+var app = express();
 var pool = new Pool(config);
 
 //
+
 app.use(morgan('combined'));
 app.use(bp.json());
 
