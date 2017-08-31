@@ -143,6 +143,9 @@ app.get('/ui/a4img.png', function (req, res) {
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+app.get('/ui/silo.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'silo.js'));
+});
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
