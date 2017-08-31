@@ -87,31 +87,10 @@ app.post('/create-user',function(req,res){
     });
 });
 
-app.post('/login',function(req,res){
-    var usna = req.body.username;
-    var pass = req.body.password;
-    pool.query('SELECT * from all_db WHERE usna = $1', [usna], function(err, result){
-        if (err){
-            res.send(500).send(err.toString());
-        }
-        else {
-            if (result.rows.length === 0){
-                
-                res.send(403).send('Username does not exsist');
-            }
-            else{
-                var dbstr = result.rows[0].password;
-                var salt1 = dbstr.split('$')[2];
-                var pa = hash(pass, salt1);
-                if (pa === dbstr){
-                    res.send(200).send('Welcome... '+ usna );
-                }
-                else {
-                    res.send(403).send('Invalid Password');
-                }
-            }
-        }
-    });
+app.post('/login', function(req, res){
+    var sent_name = req.body.username;
+    var sent_pass = req.body.password;
+    res.send(sent_name+":"+sent_pass);
 });
 
 
