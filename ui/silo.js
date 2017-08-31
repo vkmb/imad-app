@@ -14,7 +14,7 @@ sub.onClick = function(){
             }
         }
     }
-    request.setRequestHeader('Content-Text', 'application/json');
+    request.setRequestHeader('Content-Type', 'application/json');
     request.open("POST","http://mithun14leo.imad.hasura-app.io/account", true);
     request.send(JSON.stringify({'username':name, 'password':pass}));
 }; 
