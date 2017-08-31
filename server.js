@@ -84,8 +84,8 @@ app.post('/log-user',function(req,res){
             }
             else{
                 var dbstr = result.rows[0].password;
-                var salt = db.split('$')[1];
-                var dbhp = db.split('$')[3];
+                var salt = dbstr.split('$')[1];
+                var dbhp = dbstr.split('$')[3];
                 var pa = hash(pass, salt)
                 if (pa === dbhp){
                     res.send(200).send('Welcome... '+ usna );
