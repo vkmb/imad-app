@@ -40,13 +40,13 @@ alert(a.toString());
 }
         else if (request.status === 502){
             var nae_1stg = request.responseText;
-             //s.innerHTML=nae_1stg.toString();
+             s.innerHTML=nae_1stg.toString();
             alert(nae_1stg);
         }
         else if (request.status === 403){
             var naes_1stg = request.responseText;
-             //s.innerHTML=naes_1stg.toString();
-            alert(nae_1stg);
+             s.innerHTML=naes_1stg.toString();
+            //alert(nae_1stg);
         }
     }
     };
