@@ -38,7 +38,7 @@ if (request.status === 200){
 var a = request.responseText;
 alert(a.toString());
 }
-        else if (request.status === 500){
+        else if (request.status === 502){
             var nae_1stg = request.responseText;
              s.innerHTML=nae_1stg.toString();
             //alert(nae_1stg);
