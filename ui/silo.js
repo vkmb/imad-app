@@ -5,8 +5,8 @@ var sub =  document.getElementById("sub");
 sub.onclick = function(){
 var name = us.value;
 var pass = pa.value;
-console.log(name,pass);
-
+console.log(name);
+console.log(pass);
         var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
