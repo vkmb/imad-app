@@ -1,7 +1,8 @@
 console.log('Loaded!');
-var us = document.getElementById('username');
-var pa = document.getElementById('password');
-var sub =  document.getElementById('sub');
+var us = document.getElementById("username");
+var pa = document.getElementById("password");
+var s =  document.getElementById("sas");
+var sub =  document.getElementById("sub");
 sub.onClick = function(){
 var name = us.value;
 var pass = pa.value;
