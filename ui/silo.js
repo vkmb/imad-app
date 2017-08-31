@@ -5,7 +5,7 @@ var sub =  document.getElementById("sub");
 sub.onclick = function(){
 var name = us.value;
 var pass = pa.value;
-console.log('Loaded!');
+console.log(name,pass);
 
         var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -20,8 +20,8 @@ console.log('Loaded!');
         }
     }
     };
-    request.open("POST","http://mithun14leo.imad.hasura-app.io/create-user", true);
     request.setRequestHeader("Content-Type", "applicaton/json");
+    request.open("POST","http://mithun14leo.imad.hasura-app.io/create-user", true);
     request.send(JSON.stringify({'username':name,'password':pass}));
     };
 
