@@ -53,7 +53,7 @@ console.log(pass);
     }
     };
     
-    request.open("POST","http://mithun14leo.imad.hasura-app.io/create-user", true);
+    request.open("POST","http://mithun14leo.imad.hasura-app.io/log-user", true);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify({'username':name,'password':pass}));
     };
