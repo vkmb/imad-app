@@ -31,15 +31,13 @@ console.log(pass);
 log.onclick = function(){
 var name = us.value;
 var pass = pa.value;
-console.log(name);
-console.log(pass);
-        var request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
-    if (request.readyState === XMLHttpRequest.DONE){
-        if (request.status === 200){
-            var a = request.responseText;
-            alert(a.toString());
-        }
+var request = new XMLHttpRequest();
+request.onreadystatechange = function(){
+if (request.readyState === XMLHttpRequest.DONE){
+if (request.status === 200){
+var a = request.responseText;
+alert(a.toString());
+}
         else if (request.status === 500){
             var nae_1stg = request.responseText;
              s.innerHTML=nae_1stg.toString();
