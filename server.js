@@ -54,7 +54,7 @@ function convert2html(data){
 }
 var pool = new Pool(config);
 app.get('/hash/:value',function(req,res){
-    var value = rep.params.value;
+    var value = req.params.value;
     res.send(value);
 });
 
