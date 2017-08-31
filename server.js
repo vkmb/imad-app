@@ -68,6 +68,21 @@ function convert2html(data){
 
 //end pionts
 
+app.post('/create-user',function(req,res){
+    var usna = req.body.username;
+    var pass = req.body.password;
+    var salt = crypto.randomBytes(128).toString('hex');
+    pass = hash(pass, salt);
+    pool.query('INSERT INTO all_db (user_name, password) VALUES ($1, $2)', [usna, pass], function(err, result){
+        if (err){
+            res.send(500).send(err.toString());
+        }
+        else{
+            res.send(200).send('User Account successfully created for '+username);
+        }
+    });
+});
+
 /*app.get('/hash/:value',function(req,res){
     var value = req.params.value;
     value = hash(value,'hello');
@@ -99,20 +114,7 @@ app.get('/articles/:articletitle', function (req, res) {
        }
     });
 });
-app.post('/create-user',function(req,res){
-    var usna = req.body.username;
-    var pass = req.body.password;
-    var salt = crypto.randomBytes(128).toString('hex');
-    pass = hash(pass, salt);
-    pool.query('INSERT INTO all_db (user_name, password) VALUES ($1, $2)', [usna, pass], function(err, result){
-        if (err){
-            res.send(500).send(err.toString());
-        }
-        else{
-            res.send(200).send('User Account successfully created for '+username);
-        }
-    });
-});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
