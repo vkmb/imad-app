@@ -13,12 +13,12 @@ console.log(pass);
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
             s.innerHTML=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
-            //alert('ACCOUNT CREATED SUCCESSFULLY FOR '+ name);
+            alert('ACCOUNT CREATED SUCCESSFULLY FOR '+ name);
         }
         else if (request.status === 500){
             var nae_1stg = request.responseText;
              s.innerHTML=nae_1stg.toString();
-            //alert(nae_1stg);
+            alert(nae_1stg);
         }
     }
     };
@@ -41,12 +41,12 @@ alert(a.toString());
         else if (request.status === 502){
             var nae_1stg = request.responseText;
              s.innerHTML=nae_1stg.toString();
-            //alert(nae_1stg);
+            alert(nae_1stg);
         }
         else if (request.status === 403){
             var naes_1stg = request.responseText;
              s.innerHTML=naes_1stg.toString();
-            //alert(nae_1stg);
+            alert(nae_1stg);
         }
     }
     };
