@@ -18,7 +18,7 @@ var pass = pa.value;
         }
     }
     };
-    request.open("GET","http://mithun14leo.imad.hasura-app.io/create-user", true);
+    request.open("POST","http://mithun14leo.imad.hasura-app.io/create-user", true);
     request.setRequestHeader("Content-Type", "applicaton/json");
     request.send(JSON.stringify({'username':name,'password':pass}));
     };
