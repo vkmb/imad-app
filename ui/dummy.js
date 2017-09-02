@@ -8,7 +8,7 @@ req.onreadystatechange = function(){
     if (req.readyState === XMLHttpRequest.DONE){
         if (req.status === 200){
            var name1 = "";
-            var nae_stg = request.responseText;
+            var nae_stg = req.responseText;
             name_list = JSON.parse(nae_stg);
             for (var i =0;i < name_list.length;i++){
                 name1 = name1 + "<li>" + name_list[i]+"</li>";
