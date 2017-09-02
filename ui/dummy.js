@@ -12,10 +12,7 @@ sub_button.onclick= function(){
             var name1 = "";
             var nae_stg = request.responseText;
             name_list = JSON.parse(nae_stg);
-            for (var i =0;i < name_list.length;i++){
-                name1 = name1 + "<li>" + name_list[i]+"</li>";
-            }
-            ul.innerHTML = name1;
+            ul.innerHTML = name_list;
         }
         else if (request.status === 502){
             var nae_stg1 = request.responseText;
@@ -26,6 +23,6 @@ sub_button.onclick= function(){
     }
         
     };
-    request.open("GET","http://mithun14leo.imad.hasura-app.io/dummy2?name="+name, true);
+    request.open("GET","http://mithun14leo.imad.hasura-app.io/submitname?name="+name, true);
     request.send(null);
     };
