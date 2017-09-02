@@ -174,7 +174,7 @@ app.get('/dummy2', function (req, res) {
                {res.send('Article Not found');}
           
            else {
-               var articledata = result.rows;
+               var articledata = result.title;
                res.send(JSON.stringify(articledata));
            }
        }
