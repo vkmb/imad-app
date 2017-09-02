@@ -7,11 +7,13 @@ var req = new XMLHtppRequest();
 req.onreadystatechange = function(){
     if (req.readyState === XMLHttpRequest.DONE){
         if (req.status === 200){
-            alert(name);
-        }
-        else if (req.status === 500){
-            var nae_1stg = req.responseText;
-            alert(nae_1stg);
+           var name1 = "";
+            var nae_stg = request.responseText;
+            name_list = JSON.parse(nae_stg);
+            for (var i =0;i < name_list.length;i++){
+                name1 = name1 + "<li>" + name_list[i]+"</li>";
+            }
+            ul.innerHTML = name1;
         }
     }
     };
