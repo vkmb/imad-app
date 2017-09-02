@@ -164,6 +164,11 @@ app.get('/submitname', function (req, res) {
   res.send(JSON.stringify(name_list));
 });
 
+app.get('/dummy', function (req, res) {
+  var name = req.query.name;
+  
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
