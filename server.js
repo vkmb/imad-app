@@ -166,6 +166,24 @@ app.get('/submitname', function (req, res) {
 
 app.get('/dummy', function (req, res) {
   var name = req.query.name;
+  var nl
+   pool.query("SELECT * FROM dummy WHERE title !=  $1",[name], function(err, result){
+       if (err){
+           res.status(500).send(err.toString());}
+       else {
+           if (result.rows.lenght === 0)
+               {res.send(500).send("Not yet created");}
+          
+           else {
+               var nl = "";
+               for (var i=0;i < result.rows.lenght; i++){
+                   nl += result.rows[i]; 
+               }
+               
+               res.send(200).send(nl);
+           }
+       }
+    });
   
 });
 
