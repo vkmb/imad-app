@@ -164,27 +164,9 @@ app.get('/submitname', function (req, res) {
   res.send(JSON.stringify(name_list));
 });
 
-app.get('/dummy', function (req, res) {
+app.get('/dummy2', function (req, res) {
   var name = req.query.name;
-  var nl
-   pool.query("SELECT * FROM dummy WHERE title !=  $1",[name], function(err, result){
-       if (err){
-           res.status(500).send(err.toString());}
-       else {
-           if (result.rows.length === 0)
-               {res.send(500).send("Not yet created");}
-          
-           else {
-               var nl = "";
-               for (var i=0;i < result.rows.length; i++){
-                   nl += result.rows[i]; 
-               }
-               
-               res.send(200).send(nl);
-           }
-       }
-    });
-  
+  res.send(name);
 });
 
 app.get('/ui/style.css', function (req, res) {
