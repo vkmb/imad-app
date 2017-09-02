@@ -1,17 +1,31 @@
-var ne = document.getElementById('name');
-var st = document.getElementById('submit');
-var uol = document.getElementById('ul');
-st.onclick = function(){
-var name = ne.value;
-var req = new XMLHttpRequest();
-req.onreadystatechange = function(){
-    if (req.readyState === XMLHttpRequest.DONE){
-        if (req.status === 200){
-            var nae_stg = req.responseText;
-            ul.innerHTML = nae_stg;
+var name_list = [];
+
+var sub_button = document.getElementById("submit");
+var name_text = document.getElementById("name");
+var ul = document.getElementById("ul");
+sub_button.onclick= function(){
+    var name = name_text.value;
+        var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+    if (request.readyState === XMLHttpRequest.DONE){
+        if (request.status === 200){
+            var name1 = "";
+            var nae_stg = request.responseText;
+            name_list = JSON.parse(nae_stg);
+            for (var i =0;i < name_list.length;i++){
+                name1 = name1 + "<li>" + name_list[i]+"</li>";
+            }
+            ul.innerHTML = name1;
         }
+        else if (request.status === 502){
+            var nae_stg1 = request.responseText;
+            ul.innerHTML = name1;
+        }
+    
+        
     }
+        
     };
-req.open("GET","http://mithun14leo.imad.hasura-app.io/dummy?name="+name, true);
-req.send(null);
-};
+    request.open("GET","http://mithun14leo.imad.hasura-app.io/submitname?name="+name, true);
+    request.send(null);
+    };
