@@ -175,7 +175,7 @@ app.get('/dummy2', function (req, res) {
           
            else {
                var articledata = result.rows[0];
-               res.send(JSON.stringify(rows));
+               res.send(JSON.stringify(result.rows));
            }
        }
     });
