@@ -3,7 +3,7 @@ var st = document.getElementById('submit');
 var uol = document.getElementById('ul');
 st.onclick = function(){
 var name = ne.value;
-var req = new XMLHtppRequest();
+var req = new XMLHttpRequest();
 req.onreadystatechange = function(){
     if (req.readyState === XMLHttpRequest.DONE){
         if (req.status === 200){
