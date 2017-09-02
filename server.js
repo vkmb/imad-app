@@ -147,6 +147,7 @@ app.get('/articles/:articletitle', function (req, res) {
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
 app.get('/accounts', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'silo.html'));
 });
@@ -177,6 +178,12 @@ app.get('/ui/main.js', function (req, res) {
 });
 app.get('/ui/silo.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'silo.js'));
+});
+app.get('/ui/dummy.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'dummy.html'));
+});
+app.get('/ui/dummy.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'dummy.js'));
 });
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
