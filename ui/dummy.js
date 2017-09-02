@@ -14,7 +14,7 @@ sub_button.onclick= function(){
             ul.innerHTML = nae_stg;
         }
         else if (request.status === 502){
-            var nae_stg1 = request.responseText;
+            var nae_stg1 = JSON.parse(request.responseText);
             ul.innerHTML = name1;
         }
     
