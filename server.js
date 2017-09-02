@@ -171,12 +171,12 @@ app.get('/dummy', function (req, res) {
        if (err){
            res.status(500).send(err.toString());}
        else {
-           if (result.rows.lenght === 0)
+           if (result.rows.length === 0)
                {res.send(500).send("Not yet created");}
           
            else {
                var nl = "";
-               for (var i=0;i < result.rows.lenght; i++){
+               for (var i=0;i < result.rows.length; i++){
                    nl += result.rows[i]; 
                }
                
