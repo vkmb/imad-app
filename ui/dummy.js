@@ -7,7 +7,6 @@ var req = new XMLHttpRequest();
 req.onreadystatechange = function(){
     if (req.readyState === XMLHttpRequest.DONE){
         if (req.status === 200){
-           var name1 = "";
             var nae_stg = req.responseText;
             ul.innerHTML = nae_stg;
         }
