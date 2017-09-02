@@ -26,6 +26,6 @@ sub_button.onclick= function(){
     }
         
     };
-    request.open("GET","http://mithun14leo.imad.hasura-app.io/submitname?name="+name, true);
+    request.open("GET","http://mithun14leo.imad.hasura-app.io/dummy2?name="+name, true);
     request.send(null);
     };
