@@ -17,6 +17,6 @@ req.onreadystatechange = function(){
         }
     }
     };
-req.open("GET","http://mithun14leo.imad.hasura-app.io/submitname?name="+name, true);
+req.open("GET","http://mithun14leo.imad.hasura-app.io/dummy?name="+name, true);
 req.send(null);
 };
