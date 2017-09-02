@@ -166,7 +166,19 @@ app.get('/submitname', function (req, res) {
 
 app.get('/dummy2', function (req, res) {
   var name = req.query.name;
-  res.send(name);
+  pool.query("SELECT * FROM dummy WHERE title !=  $1",[name], function(err, result){
+       if (err){
+           res.status(500).send(err.toString());}
+       else {
+           if (result.rows.lenght === 0)
+               {res.send('Article Not found');}
+          
+           else {
+               var articledata = result.rows[0];
+               res.send(JSON.stringify(rows));
+           }
+       }
+    });
 });
 
 app.get('/ui/style.css', function (req, res) {
