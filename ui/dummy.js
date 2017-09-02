@@ -11,7 +11,6 @@ sub_button.onclick= function(){
         if (request.status === 200){
             var name1 = "";
             var nae_stg = request.responseText;
-            name_list = JSON.parse(nae_stg);
             ul.innerHTML = name_list;
         }
         else if (request.status === 502){
