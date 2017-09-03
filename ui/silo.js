@@ -38,7 +38,7 @@ if (request.readyState === XMLHttpRequest.DONE){
     var a = JSON.parse(request.responseText);
     alert("WELCOME "+a['usna']);
     }
-    else {
+    else if (400 <= request.status <= 505){
         var err_1 = request.responseText;
          s.innerHTML=err_1;
         //alert(nae_1stg);
