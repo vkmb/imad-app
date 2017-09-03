@@ -38,12 +38,7 @@ if (request.readyState === XMLHttpRequest.DONE){
     var a = JSON.parse(request.responseText);
     alert("WELCOME "+a['usna']);
     }
-    else if (request.status === 502){
-        var nae_1stg = request.responseText;
-         s.innerHTML=nae_1stg.toString();
-        alert(nae_1stg);
-    }
-    else if (request.status === 403){
+    else {
         var err_1 = request.responseText;
          s.innerHTML=err_1;
         //alert(nae_1stg);
