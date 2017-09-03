@@ -107,7 +107,7 @@ app.post('/login', function(req, res){
            }
            else {
                var error3 = 'Incorrect Password';
-               res.send(502).send(error3);
+               res.send(error3).send(502);
            }
        }
            
