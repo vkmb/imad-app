@@ -88,8 +88,8 @@ app.post('/create-user',function(req,res){
 });
 
 app.post('/login', function(req, res){
-    var sent_name = req.body.username.toString();
-    var sent_pass = req.body.password.toString();
+    var sent_name = req.body.username;
+    var sent_pass = req.body.password;
     if (sent_name.length === 0 || sent_pass.length === 0 )
     {
         res.send(403).send("Username/Password cannot be empty");
