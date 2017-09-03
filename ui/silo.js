@@ -43,8 +43,8 @@ request.onreadystatechange = function(){
     else if (request.status === 200){
         var a = JSON.parse(request.responseText);
     alert("WELCOME "+a['usna']);
+    s.innerHTML="logged in";
         
-        //alert(nae_1stg);
     }
     }
     };
