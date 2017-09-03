@@ -193,7 +193,7 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/silo.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'silo.js'));
 });
-app.get('signup_login', function (req, res) {
+app.get('/signup_login', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'silo.js'));
 });
 app.get('/ui/dummy.html', function (req, res) {
