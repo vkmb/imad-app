@@ -87,24 +87,27 @@ app.post('/create-user',function(req,res){
 app.post('/login', function(req, res){
     var sent_name = req.body.username;
     var sent_pass = req.body.password;
-   
-        pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
+    var err = {'error': "null"};
+    pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
-           res.send(500).send(JSON.stringify({'error':err.toString()}));
+           err['error'] = err.toString();
+           res.send(JSON.stringify(err));
        }
        else {
            if(result.rows.length === 0){
-           res.send(403).send(JSON.stringify({'error':'Account does not exsist'}));
+               err['error'] = 'Account does not exsist';
+               res.send(JSON.stringify(err));
        }
        else {
            var dbs = result.rows[0].pass;
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
-               res.send(200).send(JSON.stringify(result.rows[0]));
+               res.send(JSON.stringify(result.rows[0]));
            }
            else {
-               res.send(403).send(JSON.stringify({'error':'Incorrect Password'}));
+               err['error'] = 'Incorrect Password';
+               res.send(JSON.stringify(err));
            }
        }
            
