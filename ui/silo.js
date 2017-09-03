@@ -39,8 +39,8 @@ var a = request.responseText;
 alert(a.toString());
 }
         else if (request.status === 502){
-            var nae_1stg = request.responseText;
-             s.innerHTML=nae_1stg.toString();
+            var nae_1stg = JSON.parse(request.responseText);
+             s.innerHTML=nae_1stg['usna'].toString();
             alert(nae_1stg);
         }
         else if (request.status === 403){
