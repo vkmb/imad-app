@@ -34,24 +34,24 @@ var pass = pa.value;
 var request = new XMLHttpRequest();
 request.onreadystatechange = function(){
 if (request.readyState === XMLHttpRequest.DONE){
-if (request.status === 200){
-var a = request.responseText;
-alert(a.toString());
-}
-        else if (request.status === 502){
-            var nae_1stg = JSON.parse(request.responseText);
-             s.innerHTML=nae_1stg['usna'].toString();
-            alert(nae_1stg);
+    if (request.status === 200){
+    var a = JSON.parse(request.responseText);
+    alert("WELCOME "+a['usna']);
+    }
+    else if (request.status === 502){
+        var nae_1stg = request.responseText;
+         s.innerHTML=nae_1stg.toString();
+        alert(nae_1stg);
+    }
+    else if (request.status === 403){
+        var naes_1stg = request.responseText;
+        if (naes_1stg === "Forbidden"){
+            s.innerHTML="Account Does Not Exist";
         }
-        else if (request.status === 403){
-            var naes_1stg = request.responseText;
-            if (naes_1stg === "Forbidden"){
-                s.innerHTML="Account Does Not Exist";
-            }
-            
-             s.innerHTML=naes_1stg.toString();
-            //alert(nae_1stg);
-        }
+        
+         s.innerHTML=naes_1stg.toString();
+        //alert(nae_1stg);
+    }
     }
     };
     
