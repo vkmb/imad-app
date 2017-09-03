@@ -93,9 +93,10 @@ app.post('/login', function(req, res){
    
         pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
-           res.send(500).send(err.toString());
+           res.send(500).send(JSON.stringify({'error':err.toString()}));
        }
-       else if(result.rows.length === 0){
+       else {
+           if(result.rows.length === 0){
            res.send(403).send('Account does not exsist');
        }
        else {
@@ -106,8 +107,10 @@ app.post('/login', function(req, res){
                res.send(JSON.stringify(result.rows[0]));
            }
            else {
-               res.send('Incorrect Password');
+               res.send(JSON.stringify({'error':'Incorrect Password'}));
            }
+       }
+           
        }
     });
     
