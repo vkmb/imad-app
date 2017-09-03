@@ -44,8 +44,8 @@ if (request.readyState === XMLHttpRequest.DONE){
         alert(nae_1stg);
     }
     else if (request.status === 403){
-        var err_1 = JSON.parse(request.reponseText);
-         s.innerHTML=err_1['error'];
+        var err_1 = request.responseText;
+         s.innerHTML=err_1;
         //alert(nae_1stg);
     }
     }
