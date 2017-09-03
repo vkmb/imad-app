@@ -100,7 +100,7 @@ app.post('/login', function(req, res){
            res.send(403).send(JSON.stringify({'error':'Account does not exsist'}));
        }
        else {
-           if (pass.toString().length !== 0)
+           if (sent_pass.toString().length !== 0)
            {var dbs = result.rows[0].pass;
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
