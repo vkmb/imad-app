@@ -103,7 +103,7 @@ app.post('/login', function(req, res){
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
-               res.send(result.rows[0]);
+               res.send(JSON.stringify(result.rows[0]));
            }
            else {
                res.send('Incorrect Password');
