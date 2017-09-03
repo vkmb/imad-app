@@ -45,6 +45,10 @@ alert(a.toString());
         }
         else if (request.status === 403){
             var naes_1stg = request.responseText;
+            if (naes_1stg === "Forbidden"){
+                s.innerHTML="Account Does Not Exist";
+            }
+            
              s.innerHTML=naes_1stg.toString();
             //alert(nae_1stg);
         }
