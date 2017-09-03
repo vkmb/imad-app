@@ -90,8 +90,7 @@ app.post('/create-user',function(req,res){
 app.post('/login', function(req, res){
     var sent_name = req.body.username;
     var sent_pass = req.body.password;
-    if (sent_name.length === 0 || sent_pass.length === 0 )
-    
+   
         pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
            res.send(500).send(err.toString());
