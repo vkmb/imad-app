@@ -88,7 +88,7 @@ app.post('/login', function(req, res){
     var sent_name = req.body.username;
     var sent_pass = req.body.password;
     var error = "error";
-    var err = {'error':$error};
+    var err = {'error': ${error} };
     pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
            error = err.toString();
