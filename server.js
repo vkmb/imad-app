@@ -87,15 +87,16 @@ app.post('/create-user',function(req,res){
 app.post('/login', function(req, res){
     var sent_name = req.body.username;
     var sent_pass = req.body.password;
-    var err = {'error': " "};
+    var error = " ";
+    var err = {'error':$error};
     pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
-           err['error'] = err.toString();
+           error = err.toString();
            res.send(JSON.stringify(err));
        }
        else {
            if(result.rows.length === 0){
-               err['error'] = 'Account does not exsist';
+               error = 'Account does not exsist';
                res.send(JSON.stringify(err));
        }
        else {
@@ -106,7 +107,7 @@ app.post('/login', function(req, res){
                res.send(JSON.stringify(result.rows[0]));
            }
            else {
-               err['error'] = 'Incorrect Password';
+               error = 'Incorrect Password';
                res.send(JSON.stringify(err));
            }
        }
