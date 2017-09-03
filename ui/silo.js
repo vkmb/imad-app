@@ -44,12 +44,8 @@ if (request.readyState === XMLHttpRequest.DONE){
         alert(nae_1stg);
     }
     else if (request.status === 403){
-        var naes_1stg = request.responseText;
-        if (naes_1stg === "Forbidden"){
-            s.innerHTML="Account Does Not Exist";
-        }
-        
-         s.innerHTML=naes_1stg.toString();
+        var err_1 = JSON.parse(request.reponseText);
+         s.innerHTML=err_1['error'];
         //alert(nae_1stg);
     }
     }
