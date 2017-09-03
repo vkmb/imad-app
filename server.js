@@ -97,7 +97,7 @@ app.post('/login', function(req, res){
        }
        else {
            if(result.rows.length === 0){
-           res.send(403).send('Account does not exsist');
+           res.send(403).send(JSON.stringify({'error':'Account does not exsist'}));
        }
        else {
            var dbs = result.rows[0].pass;
