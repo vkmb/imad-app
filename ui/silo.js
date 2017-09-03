@@ -33,14 +33,17 @@ var name = us.value;
 var pass = pa.value;
 var request = new XMLHttpRequest();
 request.onreadystatechange = function(){
-if (request.readyState === XMLHttpRequest.DONE){
-    if (request.status === 200){
-    var a = JSON.parse(request.responseText);
-    alert("WELCOME "+a['usna']);
-    }
-    else if (400 <= request.status <= 505){
-        var err_1 = request.responseText;
+
+   
+   if (request.readyState === XMLHttpRequest.DONE){
+    if (request.status !== 200){
+    var err_1 = request.responseText;
          s.innerHTML=err_1;
+    }
+    else if (request.status === 200){
+        var a = JSON.parse(request.responseText);
+    alert("WELCOME "+a['usna']);
+        
         //alert(nae_1stg);
     }
     }
