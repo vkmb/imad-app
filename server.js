@@ -90,7 +90,12 @@ app.post('/create-user',function(req,res){
 app.post('/login', function(req, res){
     var sent_name = req.body.username;
     var sent_pass = req.body.password;
-    pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
+    if (sent_name.length === 0 || sent_pass.length === 0 )
+    {
+        res.send(403).send("Username/Password cannot be empty");
+    }
+    else {
+        pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
            res.send(err.toString());
        }
@@ -102,6 +107,7 @@ app.post('/login', function(req, res){
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
+               
                res.send('Welcome '+ sent_name);
            }
            else {
@@ -109,6 +115,7 @@ app.post('/login', function(req, res){
            }
        }
     });
+    }
 });
 
 
