@@ -38,19 +38,10 @@ if (request.readyState === XMLHttpRequest.DONE){
     var a = JSON.parse(request.responseText);
     alert("WELCOME "+a['usna']);
     }
-    else if (request.status === 502){
+    else if ( 400 <= request.status <= 550){
         var nae_1stg = request.responseText;
          s.innerHTML=nae_1stg.toString();
         alert(nae_1stg);
-    }
-    else if (request.status === 403){
-        var naes_1stg = request.responseText;
-        if (naes_1stg === "Forbidden"){
-            s.innerHTML="Account Does Not Exist";
-        }
-        
-         s.innerHTML=naes_1stg.toString();
-        //alert(nae_1stg);
     }
     }
     };
