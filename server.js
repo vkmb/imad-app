@@ -88,9 +88,9 @@ app.post('/create-user',function(req,res){
 });
 
 app.post('/login', function(req, res){
-    var sent_name = req.body.username;
-    var sent_pass = req.body.password;
-    if (sent_name.lenght === 0 || sent_pass.lenght === 0 )
+    var sent_name = req.body.username.toString();
+    var sent_pass = req.body.password.toString();
+    if (sent_name.length === 0 || sent_pass.length === 0 )
     {
         res.send(403).send("Username/Password cannot be empty");
     }
@@ -140,7 +140,7 @@ app.get('/articles/:articletitle', function (req, res) {
        if (err){
            res.status(500).send(err.toString());}
        else {
-           if (result.rows.lenght === 0)
+           if (result.rows.length === 0)
                {res.send('Article Not found');}
           
            else {
@@ -174,7 +174,7 @@ app.get('/dummy2', function (req, res) {
        if (err){
            res.status(500).send(err.toString());}
        else {
-           if (result.rows.lenght === 0)
+           if (result.rows.length === 0)
                {res.send('Article Not found');}
           
            else {
