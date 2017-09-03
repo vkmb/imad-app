@@ -97,7 +97,7 @@ app.post('/login', function(req, res){
     else {
         pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
-           res.send(err.toString());
+           res.send(500).send(err.toString());
        }
        else if(result.rows.length === 0){
            res.send(403).send('Account does not exsist');
