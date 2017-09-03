@@ -148,9 +148,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/accounts', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'silo.html'));
-});
 app.get('/my',function(req, res){
   res.sendFile(path.join(__dirname,'ui','my.html'));
 });
