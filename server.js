@@ -41,7 +41,6 @@ if (request.readyState === XMLHttpRequest.DONE){
     else if ( 400 <= request.status <= 550){
         var nae_1stg = request.responseText;
          s.innerHTML=nae_1stg.toString();
-        alert(nae_1stg);
     }
     }
     };
