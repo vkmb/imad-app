@@ -100,7 +100,8 @@ app.post('/login', function(req, res){
            res.send(403).send(JSON.stringify({'error':'Account does not exsist'}));
        }
        else {
-           var dbs = result.rows[0].pass;
+           if (pass.toString().length !== 0)
+           {var dbs = result.rows[0].pass;
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
@@ -108,6 +109,9 @@ app.post('/login', function(req, res){
            }
            else {
                res.send(403).send(JSON.stringify({'error':'Incorrect Password'}));
+           }}
+           else{
+               res.send(403).send(JSON.stringify({'error':'Password cannot be left empty'}));
            }
        }
            
