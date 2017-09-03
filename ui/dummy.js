@@ -2,7 +2,7 @@ var name_list = [];
 
 var sub_button = document.getElementById("submit");
 var name_text = document.getElementById("name");
-var ul = document.getElementById("ul");
+var ul = document.getElementById("p");
 sub_button.onclick= function(){
     var name = name_text.value;
         var request = new XMLHttpRequest();
