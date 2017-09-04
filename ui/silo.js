@@ -12,7 +12,7 @@ console.log(pass);
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
-            var suc = JSON.parse(request.reponseText);
+            var suc = JSON.parse(request.responseData);
             //s.innerHTML=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
             alert(suc['message']);
         }
