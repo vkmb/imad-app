@@ -15,7 +15,7 @@ console.log(pass);
             var suc = request.responseData;
             console.log(suc)
             //s.innerHTML=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
-            alert(suc);
+            //alert(suc);
         }
         else if (request.status === 500){
             var nae_1stg = request.responseText;
