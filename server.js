@@ -76,7 +76,8 @@ app.post('/create-user',function(req,res){
     var passq = hash(pass, salt);
     pool.query('INSERT INTO all_db (usna, pass) VALUES ($1, $2)', [usna, passq], function(err, result){
         if (err){
-            res.send(500).send(err.toString());
+            var err4 = JSON.Stringify({'error':err.toString()});
+            res.send(500).send(err4);
         }
         else{
             var suc = JSON.stringify({'message': 'Account Successfully created for '+usna});
@@ -95,7 +96,7 @@ app.post('/login', function(req, res){
        }
        else {
            if(result.rows.length === 0){
-               var error2 = 'Account does not exsist';
+               var error2 = JSON.stringify({"message":'Account does not exsist'});
                res.send(403).send(error2);
        }
        else {
@@ -107,8 +108,7 @@ app.post('/login', function(req, res){
                res.send(outp);
            }
            else {
-               var error3 = 'Incorrect Password';
-               res.send(502);
+                var error3 = JSON.stringify({"message": 'Incorrect Password'});
                res.send(error3);
            }
        }
