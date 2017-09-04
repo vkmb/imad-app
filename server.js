@@ -92,12 +92,12 @@ app.post('/login', function(req, res){
     pool.query('SELECT * FROM all_db WHERE usna = $1',[sent_name],function(err, result){
        if (err){
            var error = err.toString();
-           res.send(403).send(error);
+           res.send(500).send(error);
        }
        else {
            if(result.rows.length === 0){
                var error2 = JSON.stringify({"error":'Account does not exsist'});
-               res.send(error2);
+               res.send(403).send(error2);
        }
        else {
            var dbs = result.rows[0].pass;
