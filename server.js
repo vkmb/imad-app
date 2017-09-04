@@ -79,7 +79,9 @@ app.post('/create-user',function(req,res){
             res.send(500).send(err.toString());
         }
         else{
-            res.send(200).send('Hello '+ usna);
+            var suc = {'message': 'Account Successfully created for '+usna};
+            suc = JSON.stringify(suc);
+            res.send(200).send(suc);
         }
     });
 });
