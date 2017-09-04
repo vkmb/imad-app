@@ -12,8 +12,9 @@ console.log(pass);
     request.onreadystatechange = function(){
     if (request.readyState === XMLHttpRequest.DONE){
         if (request.status === 200){
+            var suc = JSON.parse(request.reponseText);
             //s.innerHTML=['ACCOUNT CREATED SUCCESSFULLY FOR ',name].join(" ");
-            alert('ACCOUNT CREATED SUCCESSFULLY FOR '+ name);
+            alert(suc['message']);
         }
         else if (request.status === 500){
             var nae_1stg = request.responseText;
