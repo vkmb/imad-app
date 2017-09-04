@@ -42,7 +42,7 @@ request.onreadystatechange = function(){
     var err_1 = request.responseText;
          s.innerHTML=err_1;
     }
-    else if (request.status === 200){
+    else {
         var a = JSON.parse(request.responseText);
     alert("WELCOME "+a['usna']);
     s.innerHTML="logged in";
