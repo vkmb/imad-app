@@ -38,8 +38,13 @@ request.onreadystatechange = function(){
 
    
    if (request.readyState === XMLHttpRequest.DONE){
-    if (request.status !== 200){
-    var err_1 = request.responseText;
+    if (request.status === 403){
+    var err_1 = "Account Does not Exist";
+         s.innerHTML=err_1;
+    }
+    
+    if (request.status === 502){
+    var err_2 = "INTERNEL SERVER ERROR";
          s.innerHTML=err_1;
     }
     else {
