@@ -104,7 +104,7 @@ app.post('/login', function(req, res){
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
-               var outp = JSON.stringify({"messsage":"Logged in successfully"});
+               var outp = {"messsage":"Logged in successfully"};
                res.send(outp);
            }
            else {
