@@ -97,19 +97,19 @@ app.post('/login', function(req, res){
        else {
            if(result.rows.length === 0){
                var error2 = JSON.stringify({"message":'Account does not exsist'});
-               res.send(403).send(error2);
+               res.send(error2);
        }
        else {
            var dbs = result.rows[0].pass;
            var sal = dbs.split('$')[2];
            var has_pas = hash(sent_pass, sal);
            if (has_pas === dbs){
-               var outp = {"messsage":"Logged in successfully"};
+               var outp = JSON.stringify({"messsage":"Logged in successfully"});
                res.send(outp);
            }
            else {
                 var error3 = JSON.stringify({"message": 'Incorrect Password'});
-               res.send(403).send(error3);
+               res.send(error3);
            }
        }
            
