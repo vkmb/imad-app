@@ -109,7 +109,7 @@ app.post('/login', function(req, res){
            }
            else {
                 var error3 = JSON.stringify({"error": 'Incorrect Password'});
-               res.send(403).send(error3);
+               res.send(403).write(error3);
            }
        }
            
