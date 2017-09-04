@@ -96,7 +96,7 @@ app.post('/login', function(req, res){
        }
        else {
            if(result.rows.length === 0){
-               var error2 = JSON.stringify({"message":'Account does not exsist'});
+               var error2 = JSON.stringify({"error":'Account does not exsist'});
                res.send(error2);
        }
        else {
@@ -108,7 +108,7 @@ app.post('/login', function(req, res){
                res.send(outp);
            }
            else {
-                var error3 = JSON.stringify({"message": 'Incorrect Password'});
+                var error3 = JSON.stringify({"error": 'Incorrect Password'});
                res.send(403).send(error3);
            }
        }
