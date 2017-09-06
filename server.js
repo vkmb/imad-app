@@ -7,8 +7,7 @@ var config  = {
     host:'db.imad.hasura-app.io',
     port:'5432',
     password : process.env.DB_PASSWORD
-}
-// Libaries 
+};
 
 var express = require('express');
 var morgan = require('morgan');
