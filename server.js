@@ -17,7 +17,7 @@ var crypto = require('crypto');
 var bp = require('body-parser');
 var app = express();
 var pool = new Pool(config);
-
+var map;
 //
 
 app.use(morgan('combined'));
@@ -68,7 +68,7 @@ function convert2html(data){
 function mylocmap(la,lo){
     var lat = la;
     var lon = lo;
-    var map =`<!DOCTYPE html>
+    map =`<!DOCTYPE html>
 <html>
   <head>
     <title>KayBee</title>
@@ -145,9 +145,11 @@ function mylocmap(la,lo){
 app.post ('/location',function(req,res){
     var lat = req.body.lat;
     var lon = req.body.lon;
-    res.send(mylocmap(lat,lon));
+    mylocmap(lat,lon);
 });
-
+app.get('/kaybee',function(req, res){
+    res.send(map);
+});
 app.post('/create-user',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
