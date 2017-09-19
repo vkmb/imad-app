@@ -148,7 +148,12 @@ app.post ('/location',function(req,res){
     res.send(200);
 });
 app.get('/kaybee',function(req, res){
-    res.send(map1.toString());
+    if (map1 !== null)
+    {
+    res.send(map1.toString());}
+    else{
+        res.send("Status Not Updated");
+    }
 });
 app.post('/create-user',function(req,res){
     var usna = req.body.username;
