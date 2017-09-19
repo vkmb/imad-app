@@ -138,7 +138,6 @@ function mylocmap(la,lo){
   </body>
 </html>
 `;
-    return map;
 }
 
 
@@ -146,6 +145,7 @@ app.post ('/location',function(req,res){
     var lat = req.body.lat;
     var lon = req.body.lon;
     mylocmap(lat,lon);
+    res.send(200);
 });
 app.get('/kaybee',function(req, res){
     res.send(map);
