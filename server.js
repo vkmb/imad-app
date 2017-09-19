@@ -17,7 +17,7 @@ var crypto = require('crypto');
 var bp = require('body-parser');
 var app = express();
 var pool = new Pool(config);
-var map;
+var map = null;
 //
 
 app.use(morgan('combined'));
