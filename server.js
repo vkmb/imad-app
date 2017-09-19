@@ -71,7 +71,7 @@ function mylocmap(la,lo){
     var map =`<!DOCTYPE html>
 <html>
   <head>
-    <title>KayBee Location</title>
+    <title>KayBee</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
