@@ -127,7 +127,7 @@ function mylocmap(la,lo){
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
+                              'Kaybee is here.' :
                               'Error: Your browser doesnot support geolocation.');
         infoWindow.open(map);
       }
