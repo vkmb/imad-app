@@ -148,7 +148,7 @@ app.post ('/location',function(req,res){
     res.send(200);
 });
 app.get('/kaybee',function(req, res){
-    res.send(map1);
+    res.send(map1.toString());
 });
 app.post('/create-user',function(req,res){
     var usna = req.body.username;
