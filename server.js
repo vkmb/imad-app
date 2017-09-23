@@ -147,7 +147,7 @@ app.post ('/battery',function(req,res){
     res.send(200);
 });
 app.get('/batsts',function(req, res){
-    if (map1 !== null)
+    if (bat_value !== null)
     {
     res.send(bat_value.toString());}
     else{
