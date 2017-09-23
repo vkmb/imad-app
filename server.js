@@ -18,6 +18,7 @@ var bp = require('body-parser');
 var app = express();
 var pool = new Pool(config);
 var map1 = null;
+var bat_value = null;
 //
 
 app.use(morgan('combined'));
@@ -140,6 +141,19 @@ function mylocmap(la,lo){
 `;
 }
 
+app.post ('/battery',function(req,res){
+    var value = req.body.battery;
+    bat_value = value;
+    res.send(200);
+});
+app.get('/batsts',function(req, res){
+    if (map1 !== null)
+    {
+    res.send(bat_value.toString());}
+    else{
+        res.send("Status Not Updated");
+    }
+});
 
 app.post ('/location',function(req,res){
     var lat = req.body.lat;
