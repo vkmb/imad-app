@@ -178,7 +178,7 @@ app.post('/sense', function(req, res){
     data = (data+1) / (data-1);
     pool.query('INSERT INTO sensed_data (data) VALUES ($1)', [data], function(err, result){
         if (err){
-            var err4 = JSON.Stringify({'error':err.toString()});
+            var err4 = JSON.stringify({'error':err.toString()});
             res.send(500).send(err4);
         }
         else{
