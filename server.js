@@ -343,6 +343,13 @@ app.get('/ui/dummy.html', function (req, res) {
 app.get('/ui/dummy.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'dummy.js'));
 });
+app.get('/sen', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'sen_dat.html'));
+});
+app.get('/ui/sen_dat.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'sen_dat.js'));
+});
+
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
