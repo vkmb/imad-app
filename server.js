@@ -195,11 +195,10 @@ app.get('/sen_data',function(req, res){
            res.send(500).send(error);
        }
        else {
-           for (i = 0; i < result.row.length; i++) { 
-               text += cars[i] + "<br>";
+            res.send(result.rows);
+           
 }
            
-       }
     });
 });
 
