@@ -176,7 +176,7 @@ app.get('/kaybee',function(req, res){
 app.post('/sense', function(req, res){
     var data2 = parseInt(req.body.sd);
     var data1 = (data2+1) / (data2-1);
-    var data = num1.toString();
+    var data = data1.toString();
     pool.query('INSERT INTO sensed_data (data) VALUES ($1)', [data], function(err, result){
         if (err){
             var err4 = JSON.stringify({'error':err.toString()});
