@@ -19,6 +19,7 @@ var app = express();
 var pool = new Pool(config);
 var map1 = null;
 var bat_value = null;
+var sensor_value = null;
 //
 
 app.use(morgan('combined'));
@@ -29,6 +30,8 @@ function hash(value,salt){
     var return_value = crypto.pbkdf2Sync(value, salt, 10000, 512, 'sha512');
     return ['pbkdf','10000', salt, return_value.toString('hex')].join('$');
 }
+
+
 /*
 function convert2html(data){
     var title = data.title;
@@ -168,6 +171,20 @@ app.get('/kaybee',function(req, res){
     else{
         res.send("Status Not Updated");
     }
+});
+
+app.post('/sense', function(req, res){
+    var data = req.body.s_d;
+    pool.query('INSERT INTO sensed_data (data) VALUES ($1)', [data], function(err, result){
+        if (err){
+            var err4 = JSON.Stringify({'error':err.toString()});
+            res.send(500).send(err4);
+        }
+        else{
+            var suc = JSON.stringify({'Message': 'Data Uploaded '});
+            res.send(suc);
+        }
+    });
 });
 app.post('/create-user',function(req,res){
     var usna = req.body.username;
