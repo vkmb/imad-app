@@ -186,6 +186,23 @@ app.post('/sense', function(req, res){
         }
     });
 });
+
+
+app.get('/sen_data',function(req, res){
+    pool.query('SELECT * FROM all_db WHERE usna',function(err, result){
+       if (err){
+           var error = err.toString();
+           res.send(500).send(error);
+       }
+       else {
+           for (i = 0; i < result.row.length; i++) { 
+               text += cars[i] + "<br>";
+}
+           
+       }
+    });
+});
+
 app.post('/create-user',function(req,res){
     var usna = req.body.username;
     var pass = req.body.password;
