@@ -189,13 +189,13 @@ app.post('/sense', function(req, res){
 
 
 app.get('/sen_data',function(req, res){
-    pool.query('"SELECT * FROM sensed_data WHERE title = data"',function(err, result){
+    pool.query('"SELECT * FROM sensed_data"',function(err, result){
        if (err){
            var error = err.toString();
            res.send(500).send(error);
        }
        else {
-            res.send(JSON.stringify(result));
+            res.send(JSON.stringify(result.rows));
            
 }
            
