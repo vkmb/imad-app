@@ -345,8 +345,8 @@ app.get('/ui/dummy.js', function (req, res) {
 app.get('/sen', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'sen_dat.html'));
 });
-app.get('/ui/sen_dat.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'sen_dat.js'));
+app.get('/ui/list.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'list.js'));
 });
 
 app.listen(port, function () {
