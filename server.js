@@ -196,7 +196,7 @@ app.get('/sen_data',function(req, res){
        }
        else {
             res.send(JSON.stringify(result.rows));
-           console.log(result.rows);
+
 }
            
     });
