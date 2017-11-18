@@ -195,7 +195,7 @@ app.get('/sen_data',function(req, res){
            res.send(500).send(error);
        }
        else {
-            res.send(JSON.stringify(result.rows));
+            res.send(JSON.stringify(result));
            
 }
            
