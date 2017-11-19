@@ -174,7 +174,7 @@ app.get('/kaybee',function(req, res){
 });
 
 app.post('/upload', function(req, res){
-    var data = parseInt(req.body.sd);
+    var data = req.body.sd;
     pool.query('INSERT INTO sensed_data (data) VALUES ($1)', [data], function(err, result){
         if (err){
             var err4 = JSON.stringify({'error':err.toString()});
